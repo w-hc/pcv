@@ -1,2 +1,3 @@
-# pcv
-Pixel Consensus Voting for Panoptic Segmentation (CVPR 2020)
+#### Implementation for Pixel Consensus Voting. 
+---
+Code coming soon. 
