@@ -1,5 +1,11 @@
 # Pixel Consensus Voting for Panoptic Segmentation (CVPR 2020)
 
+<div align="center">
+  <img width="500" alt="backproj" src="https://user-images.githubusercontent.com/17956191/119717745-b473d900-be34-11eb-81f1-16e7a6bcfd96.png">
+  <img alt="panel" src="https://user-images.githubusercontent.com/17956191/119717968-ff8dec00-be34-11eb-86c6-c81f0ec8dae0.png">
+</div>
+
+
 The core of our approach, Pixel Consensus Voting, is a framework for instance segmentation based on the Generalized Hough transform. Pixels cast discretized, probabilistic votes for the likely regions that contain instance centroids. At the detected peaks that emerge in the voting heatmap, backprojection is applied to collect pixels and produce instance masks. Unlike a sliding window detector that densely enumerates object proposals, our method detects instances as a result of the consensus among pixel-wise votes. We implement vote aggregation and backprojection using native operators of a convolutional neural network. The discretization of centroid voting reduces the training of instance segmentation to pixel labeling, analogous and complementary to FCN-style semantic segmentation, leading to an efficient and unified architecture that jointly models things and stuff. We demonstrate the effectiveness of our pipeline on COCO and Cityscapes Panoptic Segmentation and obtain competitive results. 
 
 ## Quick Intro
