@@ -1,4 +1,4 @@
-# Pixel Consensus Voting for Panoptic Segmentation (CVPR 2020)
+# Pixel Consensus Voting (CVPR 2020)
 
 <div align="center">
   <img width="500" alt="backproj" src="https://user-images.githubusercontent.com/17956191/119717745-b473d900-be34-11eb-81f1-16e7a6bcfd96.png">
