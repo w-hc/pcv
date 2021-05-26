@@ -21,13 +21,11 @@ The core of our approach, Pixel Consensus Voting, is a framework for instance se
 - fabric (personal toolkit that needs to be re-factored in)
 - pycocotools
 
-### Train and Eval
-
 ~~~python
 python run.py -c train
 python run.py -c evaluate
 ~~~
-will initiate training with the default PCV configuration reported in Table 3 of the paper. 
+runs the default PCV configuration reported in Table 3 of the paper. 
 
 
 ## Bibtex
