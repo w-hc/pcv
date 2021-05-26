@@ -10,14 +10,14 @@ The core of our approach, Pixel Consensus Voting, is a framework for instance se
 
 ## Quick Intro
 - The codebase contains the essential ingredients of PCV, including various spatial discretization schemes and convolutional backprojection inference. The network backbone is a simple FPN on ResNet.
-- Visualzier 1 (<code>src/vis.py</code>): loads a single image into a dynamic, interacive interface that allows users to click on pixels to inspect model prediction. It is built on matplotlib interactive API and jupyter widgets. Under the hood it's React.
-- Visualizer 2 (<code>src/pan_vis.py</code>): A global inspector that take panoptic segmentation prediction and displays prediction segments against ground truth. Useful to track down which images make the most serious error and how.
+- Visualzier 1 ([vis.py](src/vis.py)): loads a single image into a dynamic, interacive interface that allows users to click on pixels to inspect model prediction. It is built on matplotlib interactive API and jupyter widgets. Under the hood it's React.
+- Visualizer 2 ([pan_vis.py](src/pan_vis.py)): A global inspector that take panoptic segmentation prediction and displays prediction segments against ground truth. Useful to track down which images make the most serious error and how.
 
-- The core of PCV is contained in <code>src/pcv</code>. The results reported in the paper uses <code>src/pcv/pcv_basic</code>. There are also a few modification ideas that didn't work out e.g. "inner grid collapse" (<code>src/pcv/pcv_igc</code>), erasing boundary loss <code>src/pcv/pcv_boundless</code>, smoothened gt assignment <code>src/pcv/pcv_smooth</code>.
-- The deconv voting filter weight intializaiton is in <code>src/pcv/components/ballot.py</code>. Different deconv discretization schemes can be found in <code>src/pcv/components/grid_specs.py</code>. <code>src/pcv/components/snake.py</code> manages the generation of snake grid on which pcv operates.
+- The core of PCV is contained in [src/pcv](src/pcv). The results reported in the paper uses [src/pcv/pcv_basic](src/pcv/pcv_basic.py). There are also a few modification ideas that didn't work out e.g. "inner grid collapse" ([src/pcv/pcv_igc](src/pcv/pcv_igc.py)), erasing boundary loss [src/pcv/pcv_boundless](src/pcv/pcv_boundless.py), smoothened gt assignment [src/pcv/pcv_smooth](src/pcv/pcv_smooth.py).
+- The deconv voting filter weight intializaiton is in [src/pcv/components/ballot.py](src/pcv/components/ballot.py). Different deconv discretization schemes can be found in [src/pcv/components/grid_specs.py](src/pcv/components/grid_specs.py). [src/pcv/components/snake.py](src/pcv/components/snake.py) manages the generation of snake grid on which pcv operates.
 
-- The backprojection code is in <code>src/pcv/inference/mask_from_vote.py</code>. Since this is a non-standard procedure of convolving a filter to do equality comparison, I implemented a simple conv using advanced indexing. See the function <code>src/pcv/inference/mask_from_vote.py:unroll_img_inds</code>. For a fun side-project, I am thinking about rewriting the backprojection in Julia and generate GPU code (ptx) directly through LLVM. That way we don't have to deal with CUDA kernels that are hard to maintain. 
-- The main entry point is <code>run.py</code> and <code>src/entry.py</code>
+- The backprojection code is in [src/pcv/inference/mask_from_vote.py](src/pcv/inference/mask_from_vote.py). Since this is a non-standard procedure of convolving a filter to do equality comparison, I implemented a simple conv using advanced indexing. See the function [src/pcv/inference/mask_from_vote.py:unroll_img_inds](src/pcv/inference/mask_from_vote.py#L110-L119). For a fun side-project, I am thinking about rewriting the backprojection in Julia and generate GPU code (ptx) directly through LLVM. That way we don't have to deal with CUDA kernels that are hard to maintain. 
+- The main entry point is [run.py](run.py) and [src/entry.py](src/entry.py)
 
 
 ## Getting Started
